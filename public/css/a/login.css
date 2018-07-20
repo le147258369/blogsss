@@ -1,0 +1,55 @@
+﻿.login{
+    padding: 0;
+    margin: 0;
+    background-color: #364150 !important;
+}
+.login .logo{
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 15px;
+    text-align: center;
+}
+.login .content{
+    background-color: #eceef1;
+    width: 400px;
+    margin: 40px auto 10px auto;
+    padding: 30px;
+    padding-top: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.login .content h3{
+    color: #4db3a5;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400 !important;
+}
+.login .display-hide{
+    display: none;
+}
+.login .content .form-control {
+    margin-top: 22px;
+    border: none;
+    background-color: #dde3ec;
+    height: 43px;
+    color: #8290a3;
+    border: 1px solid #dde3ec;
+    float: left;
+}
+.login .content .login-form div{
+    margin-top: 22px;
+}
+.login .content .login-form .code img{
+    display: inline-block;
+    float: left;
+    margin-top: 22px;
+}
+.login .content .form-actions .btn-success {
+    font-weight: 600;
+    padding: 10px 20px !important;
+}
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active {
+    color: #fff;
+    background-color: #3b9c96;
+    border-color: #307f7a;
+}

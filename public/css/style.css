@@ -1,0 +1,99 @@
+/*header*/
+body{
+    margin: 0;
+    padding: 0;
+    background: #eeeeee;
+}
+header {
+  text-align: center;
+  background: #1CAF9A url(/img/bg.jpg) no-repeat;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-position: center;
+}
+@media screen and (max-width: 768px) {
+  header {
+    padding: 30px;
+  }
+  header h1 {
+    font-size: 30px;
+  }
+}
+header h1 {
+  color: white;
+}
+
+
+
+/*footer*/
+footer {
+    background: #202020;
+    padding: 30px 0;
+    color: #959595;
+    font-size: 12px;
+}
+footer ._title {
+    border-bottom: 1px solid #303030;
+    padding-bottom: 15px;
+    position: relative;
+    color: white;
+}
+footer ._title:after {
+    background: #e47e30;
+    bottom: -1px;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 90px;
+}
+footer ._single {
+    border-bottom: 1px dashed #303030;
+    padding: 10px 0;
+}
+footer a {
+    color: #e47e30;
+}
+footer a:hover {
+    color: white;
+}
+footer .footer_tag a {
+    color: #959595;
+    border: 1px solid #303030;
+    margin: 0 5px 5px 0px;
+    padding: 2px 7px;
+    display: inline-block;
+    transition: all 0.2s ease 0s;
+}
+footer .footer_tag a:hover {
+    background: #e47e30;
+    color: white;
+}
+.footer_bottom {
+    border-top: 1px solid #303030;
+    text-align: center;
+    background: #111111;
+    min-height: 80px;
+    font-size: 12px;
+    padding-top: 30px;
+}
+.footer_bottom a {
+    color: #199f8c;
+}
+.footer_bottom a:hover {
+    color: white;
+}
+.back_top {
+    width: 30px;
+    height: 30px;
+    background: #e47e30;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.back_top i {
+    color: white;
+    line-height: 30px;
+    font-size: 12px;
+}
