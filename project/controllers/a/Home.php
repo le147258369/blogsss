@@ -4,6 +4,6 @@ require_once (CTRLPATH.'ext/AdminController.php');
 class Home extends AdminController{
 
     public function index(){
-        echo 'admin/home';
+        $this->initTpl('home.html');
     }
 }

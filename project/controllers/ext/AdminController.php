@@ -21,7 +21,7 @@ class AdminController extends BaseController{
      * @param $html
      * @param $data
      */
-    public function initTpl($html,$data){
+    public function initTpl($html,$data= array()){
         $this->parser->parse('/a/'.$html,$data);
     }
 
