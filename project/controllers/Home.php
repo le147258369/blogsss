@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once (__DIR__."/ext/FrontendController.php");
+require_once (CTRLPATH."/ext/FrontendController.php");
 
 class Home extends FrontendController{
 
