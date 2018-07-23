@@ -1,4 +1,25 @@
-﻿//这是jQuery官方的插件开发规范，这样写是作用是：
+﻿//显示正确信息
+function showSucMsg(){
+    $('.success_msg').fadeIn();
+}
+//显示错误信息
+function showErrMsg(msg){
+	$('.error_msg span').html(msg);
+    $('.error_msg').fadeIn();
+}
+//隐藏正确信息
+function hideSucMsg(){
+    $('.success_msg').fadeOut();
+}
+//隐藏错误信息
+function hideErrMsg(){
+    $('.error_msg').fadeOut();
+}
+//错误刷新页面
+function refrence(){
+    location.reload();
+}
+//这是jQuery官方的插件开发规范，这样写是作用是：
 //1. 避免全局依赖。
 //2. 避免第三方破坏。
 //3. 兼容jQuery操作符’$'和’jQuery’

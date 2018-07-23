@@ -53,7 +53,7 @@ class LCode {
             imageellipse($img, mt_rand(0,$w), mt_rand(0,$h), $wh, $wh, $color);
         }
         //6.存入session
-        $_SESSION['info']['captcha'] = strtoupper($code);
+        $_SESSION['captcha'] = strtoupper($code);
         //7.输出销毁
         imagepng($img);
         imagedestroy($img);

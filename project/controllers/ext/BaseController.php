@@ -25,4 +25,21 @@ class BaseController extends CI_Controller{
     public function currUri(){
        return uri_string();
     }
+
+    /**
+     * 输出JSON数据
+     * @param $data array()
+     */
+    public function outputJSON($data){
+        /*$this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($data));*/
+        $this-> output
+            ->set_status_header(200)
+            ->set_content_type('application/json', 'utf-8')
+            ->set_output(json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
+            ->set_output(json_encode($data))
+            ->_display();
+        exit;
+    }
 }
