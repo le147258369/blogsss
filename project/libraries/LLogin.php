@@ -22,9 +22,9 @@ class LLogin{
             'accId' => $accInfo['acc_id'],//帐号ID
             'accName' => $accInfo['acc_name'],//帐号昵称
             'token' => $accInfo['acc_token'],//帐号Token
-            'lastLoginTime' => (!empty($accInfo['acc_login_tiem']))?
+            'lastLoginTime' => (empty($accInfo['acc_login_tiem']))?
                 '---':date('Y-m-d H:i:s',$accInfo['acc_login_tiem']),//最后登陆时间
-            'lastLoginIp' => (!empty($accInfo['acc_login_ip']))?'---':$accInfo['acc_login_ip'],//最后登陆IP
+            'lastLoginIp' => (empty($accInfo['acc_login_ip']))?'---':$accInfo['acc_login_ip'],//最后登陆IP
         ];
         //变更登陆状态
         $this->isLogged = true;
