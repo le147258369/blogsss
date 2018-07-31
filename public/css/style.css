@@ -6,7 +6,7 @@ body{
 }
 header {
   text-align: center;
-  background: #1CAF9A url(/img/bg.jpg) no-repeat;
+  background: #1CAF9A url(/public/img/bg.jpg) no-repeat;
   padding-top: 60px;
   padding-bottom: 60px;
   background-position: center;
