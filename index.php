@@ -302,9 +302,12 @@ switch (ENVIRONMENT)
 		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
 		exit(3); // EXIT_CONFIG
 	}
-
+    //控制器路徑
+    define('CTRLPATH', APPPATH."controllers".DIRECTORY_SEPARATOR);
+    //libraries路徑
+    define('LIBPATH', APPPATH."libraries".DIRECTORY_SEPARATOR);
+    //视图路径
 	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
-    define('CTRLPATH', $application_folder.'/controllers/');
 
 /*
  * --------------------------------------------------------------------

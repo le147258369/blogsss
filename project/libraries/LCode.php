@@ -1,6 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+//defined('BASEPATH') OR exit('No direct script access allowed');
 class LCode {
+    protected $_ci;  //CI资源物件
     private $_codeConfig = [
         'with' => 150,//宽
         'hight'=> 43,//高
@@ -9,13 +10,20 @@ class LCode {
         'x_float' => 15,//文字x轴浮动值
         'y_float' => 17,//文字y轴浮动值
         'font_size' => 20,//文字大小
-        'font_path' => __DIR__.'/../../public/fonts/font.ttf',//字体文件路径
+        'font_path' => '/public/fonts/font.ttf',//字体文件路径
         'line_number' => 2,//干扰线数量
         'ellipse_number' => 2,//干扰弧线数量
     ];
+    public function __construct(){
+        $this-> _ci = & get_instance();
+        $baseHost = $this->_ci->config->item('base_host');
+        if($baseHost == 'localhost'){
+            $this->_codeConfig['font_path'] = __DIR__.'/../../public/fonts/font.ttf';
+        }
+    }
     //验证码类
     public function getCode(){
-        //1.发送头部
+       //1.发送头部
         header('Content-type:image/png');
         //2.创建画布
         $w = $this->_codeConfig['with'];

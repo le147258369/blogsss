@@ -26,6 +26,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['base_url'] = $_SERVER['HTTP_HOST'];
 
 /*
+根据不同IP地址确认网站运行环境
+如果$_SERVER['REMOTE_ADDR'] = 127.0.0.1
+说明是本地电脑开发环境
+否则是百度云BHC虚拟主机环境
+ */
+if($_SERVER['REMOTE_ADDR'] == '127.0.0.1'){
+    $config['base_host'] = 'localhost';
+}else{
+    $config['base_host'] = 'bdBHC';
+}
+
+/*
 |--------------------------------------------------------------------------
 | Index File
 |--------------------------------------------------------------------------
