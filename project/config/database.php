@@ -70,7 +70,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'default';
+/*
+根据不同IP地址确认网站运行环境
+如果$_SERVER['REMOTE_ADDR'] = 127.0.0.1
+说明是本地电脑数据库
+否则是百度云BHC虚拟主机数据库
+ */
+if($_SERVER['REMOTE_ADDR'] == '127.0.0.1'){//本地数据库
+    $active_group = 'default';
+}else{
+    $active_group = 'baidu';
+}
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -93,4 +103,25 @@ $db['default'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE
+);
+$db['baidu'] = array(
+    'dsn'	=> '',
+    'hostname' => 'sqld-gz.bcehost.com:3306',
+    'username' => '67e6c5244f294fb59459fb1ea890c456',
+    'password' => '2e5db9e7353746b3b828ba9457814949',
+    'database' => ' jgJKNtsRfhPTpEnbacIw',
+    'dbdriver' => 'mysqli',
+    'dbprefix' => 'blog_',//表前缀
+    'pconnect' => FALSE,
+    'db_debug' => (ENVIRONMENT !== 'production'),
+    'cache_on' => FALSE,
+    'cachedir' => '',
+    'char_set' => 'utf8',
+    'dbcollat' => 'utf8_general_ci',
+    'swap_pre' => '',
+    'encrypt' => FALSE,
+    'compress' => FALSE,
+    'stricton' => FALSE,
+    'failover' => array(),
+    'save_queries' => TRUE
 );
