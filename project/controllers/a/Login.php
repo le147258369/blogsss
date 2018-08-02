@@ -62,7 +62,7 @@ class Login extends AdminController{
     public function loginOut(){
         $this->load->library('LLogin');
         $this->llogin->loginOut();
-        $this->go('a/login');
+        $this->go('');
     }
     /**
      * 输出验证码

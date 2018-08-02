@@ -25,7 +25,10 @@ class AdminController extends BaseController{
     public function initTpl($html,$data= array()){
         //输出页面模板
         $outTpl = [];
-        $outTpl['Header'] = $this->load->view('/a/Header.html','',TRUE);
+        $loginUser = [
+            'name' => $this->logged['accName'],
+        ];
+        $outTpl['Header'] = $this->load->view('/a/Header.html',$loginUser,TRUE);
         $outTpl['Left'] = $this->load->view('/a/Left.html','',TRUE);
         $outTpl['Content'] = $this->load->view('/a/'.$html,$data,TRUE);
         $outTpl['addNeedStyFile'] = $this->_addCssOrJs;
