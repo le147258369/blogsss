@@ -27,6 +27,8 @@ class AdminController extends BaseController{
         $outTpl = [];
         $loginUser = [
             'name' => $this->logged['accName'],
+            'csrf_name' => $this->security->get_csrf_token_name(),
+            'csrf_value' => $this->security->get_csrf_hash(),
         ];
         $outTpl['Header'] = $this->load->view('/a/Header.html',$loginUser,TRUE);
         $outTpl['Left'] = $this->load->view('/a/Left.html','',TRUE);

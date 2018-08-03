@@ -41,7 +41,7 @@
             <ul class="dropdown-menu animated fadeInRight">
                 <span class="arrow top"></span>
                 <li>
-                    <a id="changePwd">修改密码</a>
+                    <a href="javascript:;" id="changePwd">修改密码</a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -61,103 +61,47 @@
                 <div class="modal-middle text-center">
                     <form id="pwdInput" method="post" role="form" accept-charset="utf-8">
                         <div class="modal-body no-padder">
-                            <input class="form-control form-control-solid placeholder-no-fix m-t-lg" type="password" autocomplete="off" placeholder="旧密码" name="password"/>
-                            <input class="form-control form-control-solid placeholder-no-fix m-t-lg" type="password" autocomplete="off" placeholder="新密码" name="password"/>
-                            <input class="form-control form-control-solid placeholder-no-fix m-t-lg m-b-sm" type="password" autocomplete="off" placeholder="确认密码" name="password"/>
-                            <input type="hidden" name="{csrf_name}" value="{csrf_value}">
-                            <button class="btn btn-info m-b-lg btn-sm">提交</button>
+                            <label class="col-xs-12">
+                                <input class="form-control form-control-solid placeholder-no-fix m-t-lg" type="password" autocomplete="off" placeholder="旧密码" name="oldPwd"/>
+                            </label>
+                            <label class="col-xs-12">
+                                <input class="form-control form-control-solid placeholder-no-fix m-t-sm" type="password" autocomplete="off" placeholder="新密码" name="newPwd"/>
+                            </label>
+                            <label class="col-xs-12">
+                                <input class="form-control form-control-solid placeholder-no-fix m-t-sm" type="password" autocomplete="off" placeholder="确认密码" name="confirmPwd"/>
+                            </label>
+                            <label class="col-xs-12 m-t-sm m-b-lg">
+                                <input class="form-control form-control-solid placeholder-no-fix pull-left" type="text" autocomplete="off" placeholder="验证码" name="code" style="width: 55%;display: inline-block;"/>
+                                <img class="pull-right" src="/a/login/code" onclick="this.src='/a/login/code'" title="点击刷新"/>
+                            </label>
+                            <input type="hidden" name="<?php echo $csrf_name?>" value="<?php echo $csrf_value?>">
+                            <a class="btn btn-info m-b-lg btn-sm submitPwd">提交</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <!--<div class="modal fade closem" id="pwdModal"  aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" style="width: 1000px;">
-            <div class="modal-content" >
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title text-center" id="headline">{lang_Delivery_order}</h4>
-                </div>
-                <form role="form" method="get" accept-charset="utf-8" id="shipmentForm">
-                    <input type="hidden" name="{csrf_name}" value="{csrf_value}" />
-                    <div class="modal-body no-padder">
-                        <div class="table-responsive col-sm-12 no-padder">
-                            <table class="table table-hover table-bordered b-t b-light text-sm">
-                                <tbody class="text-center">
-                                <tr class="thirdTr" id="thirdTr">
-                                    <th class="text-nowrap text-right col-xs-2">{lang_delivery_order_no}</th>
-                                    <td class="text-nowrap text-left col-xs-4">
-                                        <span id="itemShpNo"></span>
-                                        <input type="hidden" name="shp_id" id="shpId" value="" />
-                                    </td>
-                                    <th class="text-nowrap text-right col-xs-2">{lang_receive_company}</th>
-                                    <td class="text-nowrap text-left col-xs-4">{cus_name}</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-nowrap text-right"><i class="fa fa-asterisk text-danger"></i>{lang_consignee}</th>
-                                    <td class="text-nowrap text-left" id="toAccName"></td>
-                                    <th class="text-nowrap text-right"><i class="fa fa-asterisk text-danger"></i>{lang_receive_address}</th>
-                                    <td class="text-nowrap text-left" id="toAccAddr"></td>
-                                </tr>
-                                <tr>
-                                    <th class="text-nowrap text-right">{lang_logistics_no}</th>
-                                    <td class="text-nowrap text-left" id="shp_logistics_no"></td>
-                                    <th class="text-nowrap text-right">{lang_logistics_company}</th>
-                                    <td class="text-nowrap text-left" id="lgcName"></td>
-                                </tr>
-                                <tr>
-                                    <th class="text-nowrap text-right">{lang_logistics_cost}</th>
-                                    <td class="text-nowrap text-left" id="shp_logistics_price"></td>
-                                    <th class="text-nowrap text-right">{lang_logistics_currency}</th>
-                                    <td class="text-nowrap text-left" id="shp_crc_simple"></td>
-                                </tr>
-                                <tr>
-                                    <th class="text-nowrap text-right">{lang_logistics_mode}</th>
-                                    <td class="text-nowrap text-left" id="shp_logistics_method"></td>
-                                    <th class="text-nowrap text-right">{lang_shipping_instructions}</th>
-                                    <td class="text-nowrap text-left" id="shp_note"></td>
-                                </tr>
-                                <tr>
-                                    <th class="text-nowrap text-right"></th>
-                                    <td class="text-nowrap text-left"></td>
-                                    <th class="text-nowrap text-left "colspan="2" ><a class="btn btn-sm btn-primary m-b-xs shp" shpId = "" onclick="javascript:downExcel();">{lang_export}</a></th>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <section class="panel">
-                            <div class="panel-body no-padder">
-                                <div class="table-responsive col-xs-12 no-padder">
-                                    <table class="table table-striped b-t b-light text-sm">
-                                        <thead class="text-center">
-                                        <tr>
-                                            <th class="th-sortable col-sm-2">{lang_type}</th>
-                                            <th class="th-sortable col-sm-2">{lang_goods_name}</th>
-                                            <th class="th-sortable col-sm-2">{lang_number}</th>
-                                            <th class="th-sortable col-sm-2">{lang_related_business_information}</th>
-                                            <th class="th-sortable col-sm-2">{lang_isabnormal}</th>
-                                            <th class="th-sortable col-sm-2">{lang_method}</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody class="text-center" id='itemInfo'>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </section>
-                        <div class="text-center">
-                            <a class="btn btn-default floatRight btn-sm m-b-sm m-r-sm" data-dismiss="modal">{lang_cancel}</a>
-                            <a class="btn btn-primary floatRight btn-sm m-b-sm" id="btnReceive">{lang_confirm}</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>-->
     <script>
         $('#changePwd').click(function(){
             $('#pwdModal').modal('show');
         });
+        $('.submitPwd').click(function (){
+            var url = '/a/Profile/editPwd';
+            var data = $('#pwdInput').serialize();
+            $.ajax({
+                'cache' : false,
+                'type' : 'post',
+                'data' : data,
+                'url' : url,
+                'dataType' : 'json',
+                'success' : ajaxPwdResult
+            });
+            $(this).attr('disabled','true');
+        });
+        function ajaxPwdResult(result){
+            $('.submitPwd').attr('disabled','false');
+            $('#pwdModal').modal('hide');
+        }
     </script>
 </header>
