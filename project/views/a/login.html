@@ -72,12 +72,15 @@
         function ajaxResult(result){
             if(result.code != 0){
                 //显示错误信息
-                showErrMsg(result.msg);
+                showErrMsg('.error_msg',result.msg);
                 //两秒后消失
-                setTimeout(hideErrMsg,2000);
+                setTimeout(hideMsgF,2000);
             }else{
                 window.location.href = result.msg;
             }
+        }
+        function hideMsgF(){
+            hideErrMsg('.error_msg')
         }
     </script>
 </body>

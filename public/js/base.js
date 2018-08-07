@@ -1,19 +1,26 @@
 ﻿//显示正确信息
-function showSucMsg(){
-    $('.success_msg').fadeIn();
+function showSucMsg(sucClass,msg){
+	var suc_class = sucClass;
+	var suc_msg = suc_class + ' span';
+    $(suc_msg).html(msg);
+    $(suc_class).fadeIn();
 }
 //显示错误信息
-function showErrMsg(msg){
-	$('.error_msg span').html(msg);
-    $('.error_msg').fadeIn();
+function showErrMsg(errClass,msg){
+    var err_class = errClass;
+    var err_msg = err_class + ' span';
+	$(err_msg).html(msg);
+    $(err_class).fadeIn();
 }
 //隐藏正确信息
-function hideSucMsg(){
-    $('.success_msg').fadeOut();
+function hideSucMsg(sucClass){
+    var suc_class = sucClass;
+    $(suc_class).fadeOut();
 }
 //隐藏错误信息
-function hideErrMsg(){
-    $('.error_msg').fadeOut();
+function hideErrMsg(errClass){
+    var suc_class = errClass;
+    $(suc_class).fadeOut();
 }
 //错误刷新页面
 function refrence(){

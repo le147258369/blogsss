@@ -62,7 +62,7 @@ class Login extends AdminController{
     public function loginOut(){
         $this->load->library('LLogin');
         $this->llogin->loginOut();
-        $this->go('');
+        $this->go('a');
     }
     /**
      * 输出验证码
@@ -74,7 +74,7 @@ class Login extends AdminController{
 /*//新增帐号
 //产生token---------------------------------------------------------------------//
 $tokenTime = time();
-$token = password_hash($tokenTime.$_POST['password'],PASSWORD_DEFAULT);
+$token = password_hash($tokenTime.$_POST['username'].$_POST['password'],PASSWORD_DEFAULT);
 //---------------------------------------------------------------------产生token//
 $data = [
     'acc_username' => $_POST['username'],

@@ -50,4 +50,16 @@ class Account_model extends CI_Model{
         $rs = $query -> row_array();
         return $rs;
     }
+
+    /**
+     * 驗證帳號密碼
+     * @param $userTonke 用户Token
+     * @param $passwd 密码
+     * @return mixed
+     */
+    public function verifyForedit($userTonke, $passwd){
+        $query = $this->db->get_where($this -> _tablename, array('acc_token' => $userTonke, "acc_password" => $this->_encryptPasswd($passwd)));
+        $rs = $query -> row_array();
+        return $rs;
+    }
 }

@@ -58,6 +58,16 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title text-center" id="headline">修改密码</h4>
                 </div>
+                <!-- BEGIN error message -->
+                <div class="alert alert-danger display-hide error_msg">
+                    <span></span>
+                </div>
+                <!-- END error message -->
+                <!-- BEGIN success message -->
+                <div class="alert alert-success display-hide success_msg">
+                    <span></span>
+                </div>
+                <!-- END success message -->
                 <div class="modal-middle text-center">
                     <form id="pwdInput" method="post" role="form" accept-charset="utf-8">
                         <div class="modal-body no-padder">
@@ -100,8 +110,24 @@
             $(this).attr('disabled','true');
         });
         function ajaxPwdResult(result){
-            $('.submitPwd').attr('disabled','false');
-            $('#pwdModal').modal('hide');
+            if(result.code != 0){
+                //显示错误信息
+                showErrMsg('.error_msg',result.msg);
+                //两秒后消失
+                setTimeout(hideMsgF,2000);
+            }else{
+                //显示正确信息
+                showSucMsg('.success_msg',result.msg);
+                setTimeout(loginOut,2000);
+            }
+            function hideMsgF(){
+                hideErrMsg('.error_msg');
+                $('.submitPwd').removeAttr('disabled');
+            }
+            function loginOut(){
+                hideSucMsg('.success_msg');
+                window.location = '/a/login/loginOut';
+            }
         }
     </script>
 </header>
